@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDev Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+    </header>
+    
+    <div class="company-info">
+        <div class="company-logo-container">
+            <img class="company-logo" src="/static/images/Pyronix.png" alt="Company Logo">
+        </div>
+        <div class="company-text">
+            <h1>Pyronix Games</h1>
+            <p>At Pyronix, we specialize in developing 2D and 3D games that combine stylish visuals, immersive atmospheres, and thoughtful mechanics. Our mission is to create unique gaming experiences that captivate and engage players, pushing the boundaries of creativity and innovation in every project we undertake.</p>
+        </div>
+        <div class="company-contacts">
+            <p><strong>Email:</strong> contact@pyronixgames.com</p>
+            <p><strong>Phone:</strong> +1 234 567 890</p>
+            <p><strong>Website:</strong> <a href="https://pyronixgames.com" target="_blank">pyronixgames.com</a></p>
+        </div>
+    </div>
+    
+    <div class="grid-container">
+        <section class="grid">
+            {% for project in projects %}
+                <button onclick="window.open('{{ project.link }}', '_blank')" class="project">
+                    <img src="{{ project.logo }}" alt="{{ project.name }}">
+                    <p class="project-title">{{ project.name }}</p>
+                </button>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>
