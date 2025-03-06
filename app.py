@@ -1,10 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
     projects = [
+        {'name': 'Soon-Soon-Tap', 'logo': 'static/images/logo16.png', 'link': 'https://t.me/soonsoontap_bot/soonsoontap'},
         {'name': 'Soon Golf', 'logo': 'static/images/logo1.png', 'link': 'https://long-as-python.itch.io/soongolf'},
         {'name': 'Apriori Worm', 'logo': 'static/images/logo2.png', 'link': 'https://long-as-python.itch.io/apriori-puzzle'},
         {'name': 'Abstract Fishing', 'logo': 'static/images/logo3.png', 'link': 'https://long-as-python.itch.io/abstract-fishing'},
@@ -23,5 +24,14 @@ def home():
     ]
     return render_template('index.html', projects=projects)
 
+@app.route('/game')
+def game():
+    return render_template('game.html')
+
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory('static', filename)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+

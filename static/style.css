@@ -160,33 +160,41 @@ header {
     color: #fff;
 }
 
-@media (max-width: 900px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
-    .container {
-        width: 70%;
-    }
+}
+
+@media (max-width: 600px) {
     .company-info {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        width: 80%;
+        width: 90%;
+        height: auto;
+        padding: 20px;
     }
+
+    .company-logo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
     .company-text {
         align-items: center;
         text-align: justify;
         max-width: 90%;
+        font-size: 14px;
     }
+
     .company-contacts {
         align-items: center;
-        text-align: justify;
+        text-align: left;
         max-width: 90%;
+        font-size: 14px;
     }
 }
+
+
